@@ -1,6 +1,8 @@
 # 👋 Hi, I’m Marco Pernigo (gjed)
 
 **DevOps, Microservices & Observability at [Zextras](https://github.com/zextras)**
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&link=https://github.com/gjed)](https://github.com/gjed)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin&link=https://linkedin.com/in/marco-pernigo)](https://linkedin.com/in/marco-pernigo)
 
 ---
 
@@ -36,13 +38,6 @@
 
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=gjed&layout=compact&theme=tokyonight)
-
----
-
-## 🔗 Connect with Me
-
-[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&link=https://github.com/gjed)](https://github.com/gjed)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin&link=https://linkedin.com/in/marco-pernigo)](https://linkedin.com/in/marco-pernigo)
 
 ---
 
