@@ -5,10 +5,6 @@
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)](https://github.com/gjed)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/marco-pernigo)
 
-<p align="center">
-  <img src="./metrics/header.svg" width="480" alt="Profile header: avatar, name, follower and repository counters">
-</p>
-
 ## 🧑‍💻 About Me
 
 - 🛠️ **DevOps Engineer & Former Full Stack Developer** — 5 years in full stack

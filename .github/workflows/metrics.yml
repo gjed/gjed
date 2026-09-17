@@ -18,36 +18,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate-header-metrics:
-    name: "Generate header metrics"
-    runs-on: "ubuntu-latest"
-    if: "github.event_name != 'pull_request'"
-    permissions: {}
-    steps:
-      - uses: "lowlighter/metrics@latest"
-        with:
-          # Core
-          config_animations: true
-          config_base64: true
-          config_display: "regular"
-          config_output: "svg"
-          config_timezone: "UTC"
-          experimental_features: "--optimize-svg"
-          filename: "header.*"
-          optimize: "css, xml, svg"
-          output_action: "none"
-          template: "classic"
-          token: "${{ secrets.METRICS_TOKEN }}"
-          user: "${{ github.repository_owner }}"
-          # Base
-          base: "header"
-      - name: "Upload artifacts"
-        uses: "actions/upload-artifact@v7"
-        with:
-          name: "metrics-header"
-          path: "/metrics_renders/"
-          retention-days: 1
-
   generate-repositories-metrics:
     name: "Generate repositories metrics"
     runs-on: "ubuntu-latest"
@@ -186,7 +156,6 @@ jobs:
     name: "Publish metrics"
     if: "github.ref == 'refs/heads/main'"
     needs:
-      - "generate-header-metrics"
       - "generate-repositories-metrics"
       - "generate-plugin-languages-metrics"
       - "generate-plugin-notable-metrics"
