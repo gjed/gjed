@@ -5,6 +5,10 @@
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)](https://github.com/gjed)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin)](https://linkedin.com/in/marco-pernigo)
 
+<p align="center">
+  <img src="./metrics/header.svg" width="480" alt="Profile header: avatar, name, follower and repository counters">
+</p>
+
 ## 🧑‍💻 About Me
 
 - 🛠️ **DevOps Engineer & Former Full Stack Developer** — 5 years in full stack
@@ -27,14 +31,23 @@
 
 ## 📊 Metrics
 
-![Header metrics](./metrics/header.svg)
+### What I build
 
-![Repositories metrics](./metrics/repositories.svg)
+<p align="center">
+  <img src="./metrics/repositories.svg" width="390" alt="Repository statistics">
+  <img src="./metrics/plugin-languages.svg" width="390" alt="Most-used languages">
+</p>
 
-![Languages plugin metrics](./metrics/plugin-languages.svg)
+### Where I contribute
 
-![Notable contributions plugin metrics](./metrics/plugin-notable.svg)
+<p align="center">
+  <img src="./metrics/plugin-notable.svg" width="390" alt="Notable contributions: commits pushed to other people's repositories over the last year">
+  <img src="./metrics/notable-historical.svg" width="390" alt="Notable contributions, historical: pull requests of mine merged into other people's repositories, all time">
+</p>
 
-![Historical notable contributions metrics](./metrics/notable-historical.svg)
+<p align="center">
+  <sub>Two views of the same habit — recent commit activity in other people's
+  repositories, and every pull request of mine they have ever merged.</sub>
+</p>
 
 > "Jack of all trades, master of none, but oftentimes better than a master of one."
