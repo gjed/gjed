@@ -120,6 +120,15 @@ const PADDING_X = 12;
 const PADDING_BOTTOM = 12;
 const AVATAR_SIZE = 28;
 
+// The other four cards in metrics/ (lowlighter/metrics "classic" template) always
+// render an opaque light card background, regardless of the viewer's GitHub theme.
+// Match that so this hand-rolled SVG doesn't turn into unreadable near-black text
+// on transparency when GitHub's dark theme is active.
+function renderCardBackground(height) {
+  return `
+  <rect x="0" y="0" width="${SVG_WIDTH}" height="${height}" rx="6" fill="#ffffff" />`;
+}
+
 function renderHeader() {
   return `
   <text x="${PADDING_X}" y="26" font-size="16" font-weight="400" fill="#0366d6">🎩 Notable contributions (historical)</text>`;
@@ -160,7 +169,7 @@ function renderSvg(entries) {
   if (entries.length === 0) {
     const height = HEADER_HEIGHT + 24 + PADDING_BOTTOM;
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${SVG_WIDTH}" height="${height}" viewBox="0 0 ${SVG_WIDTH} ${height}">
-  <style>${commonStyle}</style>${renderHeader()}
+  <style>${commonStyle}</style>${renderCardBackground(height)}${renderHeader()}
   <text x="${PADDING_X}" y="${HEADER_HEIGHT + 18}" font-size="13" fill="#777777">No historical notable contributions found</text>
 </svg>
 `;
@@ -170,7 +179,7 @@ function renderSvg(entries) {
   const rows = entries.map((entry, index) => renderRow(entry, index)).join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${SVG_WIDTH}" height="${height}" viewBox="0 0 ${SVG_WIDTH} ${height}">
-  <style>${commonStyle}</style>${renderHeader()}${rows}
+  <style>${commonStyle}</style>${renderCardBackground(height)}${renderHeader()}${rows}
 </svg>
 `;
 }
