@@ -131,7 +131,7 @@ function renderCardBackground(height) {
 
 function renderHeader() {
   return `
-  <text x="${PADDING_X}" y="26" font-size="16" font-weight="400" fill="#0366d6">🎩 Notable contributions (historical)</text>`;
+  <text x="${PADDING_X}" y="26" font-size="16" font-weight="400" fill="#0366d6">🎩 Notable contributions</text>`;
 }
 
 function renderRow(entry, index) {

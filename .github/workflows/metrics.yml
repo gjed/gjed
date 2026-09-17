@@ -90,44 +90,6 @@ jobs:
           path: "/metrics_renders/"
           retention-days: 1
 
-  generate-plugin-notable-metrics:
-    name: "Generate notable contributions plugin metrics"
-    runs-on: "ubuntu-latest"
-    if: "github.event_name != 'pull_request'"
-    permissions: {}
-    steps:
-      - uses: "lowlighter/metrics@latest"
-        with:
-          # Core
-          config_animations: true
-          config_base64: true
-          config_display: "regular"
-          config_output: "svg"
-          config_timezone: "UTC"
-          experimental_features: "--optimize-svg"
-          filename: "plugin-notable.*"
-          optimize: "css, xml, svg"
-          output_action: "none"
-          template: "classic"
-          token: "${{ secrets.METRICS_TOKEN }}"
-          user: "${{ github.repository_owner }}"
-          # Base
-          base: ""
-          # Notable contributions plugin
-          plugin_notable: true
-          plugin_notable_from: "all"
-          plugin_notable_indepth: false
-          plugin_notable_repositories: true
-          plugin_notable_types: "commit"
-          # Exclude zextras org repositories
-          plugin_notable_filter: "-user:zextras"
-      - name: "Upload artifacts"
-        uses: "actions/upload-artifact@v7"
-        with:
-          name: "metrics-notable"
-          path: "/metrics_renders/"
-          retention-days: 1
-
   generate-notable-historical-metrics:
     name: "Generate notable historical contributions metrics"
     runs-on: "ubuntu-latest"
@@ -158,7 +120,6 @@ jobs:
     needs:
       - "generate-repositories-metrics"
       - "generate-plugin-languages-metrics"
-      - "generate-plugin-notable-metrics"
       - "generate-notable-historical-metrics"
     runs-on: "ubuntu-latest"
     permissions:

@@ -37,13 +37,11 @@
 ### Where I contribute
 
 <p align="center">
-  <img src="./metrics/plugin-notable.svg" width="390" alt="Notable contributions: commits pushed to other people's repositories over the last year">
-  <img src="./metrics/notable-historical.svg" width="390" alt="Notable contributions, historical: pull requests of mine merged into other people's repositories, all time">
+  <img src="./metrics/notable-historical.svg" width="480" alt="Notable contributions: pull requests of mine merged into other people's repositories, all time">
 </p>
 
 <p align="center">
-  <sub>Two views of the same habit — recent commit activity in other people's
-  repositories, and every pull request of mine they have ever merged.</sub>
+  <sub>Every pull request of mine that someone else's repository has ever merged.</sub>
 </p>
 
 > "Jack of all trades, master of none, but oftentimes better than a master of one."
