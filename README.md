@@ -27,21 +27,13 @@
 
 ## 📊 Metrics
 
-### What I build
-
 <p align="center">
   <img src="./metrics/repositories.svg" width="390" alt="Repository statistics">
   <img src="./metrics/plugin-languages.svg" width="390" alt="Most-used languages">
 </p>
 
-### Where I contribute
-
 <p align="center">
   <img src="./metrics/notable-historical.svg" width="480" alt="Notable contributions: pull requests of mine merged into other people's repositories, all time">
-</p>
-
-<p align="center">
-  <sub>Every pull request of mine that someone else's repository has ever merged.</sub>
 </p>
 
 > "Jack of all trades, master of none, but oftentimes better than a master of one."
