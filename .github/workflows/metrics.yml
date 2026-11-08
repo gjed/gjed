@@ -2,11 +2,14 @@ name: "Metrics"
 
 on:
   push:
-    branches: ["*"]
-    paths: [".github/workflows/metrics.yml"]
+    branches: ["main"]
+    paths:
+      - ".github/workflows/metrics.yml"
+      - ".github/scripts/notable-historical.mjs"
   pull_request:
-    branches: ["*"]
-    paths: [".github/workflows/metrics.yml"]
+    paths:
+      - ".github/workflows/metrics.yml"
+      - ".github/scripts/notable-historical.mjs"
   schedule:
     - cron: "55 05 * * *"
   workflow_dispatch:
@@ -14,119 +17,19 @@ on:
 permissions: {}
 
 concurrency:
-  group: "${{ github.ref }}"
-  cancel-in-progress: true
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: false
 
 jobs:
-  generate-repositories-metrics:
-    name: "Generate repositories metrics"
-    runs-on: "ubuntu-latest"
-    if: "github.event_name != 'pull_request'"
-    permissions: {}
-    steps:
-      - uses: "lowlighter/metrics@latest"
-        with:
-          # Core
-          config_animations: true
-          config_base64: true
-          config_display: "regular"
-          config_output: "svg"
-          config_timezone: "UTC"
-          experimental_features: "--optimize-svg"
-          filename: "repositories.*"
-          optimize: "css, xml, svg"
-          output_action: "none"
-          template: "classic"
-          token: "${{ secrets.METRICS_TOKEN }}"
-          user: "${{ github.repository_owner }}"
-          # Base
-          base: "repositories"
-          repositories: 200
-          repositories_forks: false
-      - name: "Upload artifacts"
-        uses: "actions/upload-artifact@v7"
-        with:
-          name: "metrics-repositories"
-          path: "/metrics_renders/"
-          retention-days: 1
-
-  generate-plugin-languages-metrics:
-    name: "Generate languages plugin metrics"
-    runs-on: "ubuntu-latest"
-    if: "github.event_name != 'pull_request'"
-    permissions: {}
-    steps:
-      - uses: "lowlighter/metrics@latest"
-        with:
-          # Core
-          config_animations: true
-          config_base64: true
-          config_display: "regular"
-          config_output: "svg"
-          config_timezone: "UTC"
-          experimental_features: "--optimize-svg"
-          filename: "plugin-languages.*"
-          optimize: "css, xml, svg"
-          output_action: "none"
-          template: "classic"
-          token: "${{ secrets.METRICS_TOKEN }}"
-          user: "${{ github.repository_owner }}"
-          # Base
-          base: ""
-          # Languages plugin
-          plugin_languages: true
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_categories: "markup, programming"
-          plugin_languages_colors: "github"
-          plugin_languages_indepth: false
-          plugin_languages_limit: 8
-          plugin_languages_other: false
-          plugin_languages_sections: "most-used"
-          plugin_languages_threshold: "0%"
-      - name: "Upload artifacts"
-        uses: "actions/upload-artifact@v7"
-        with:
-          name: "metrics-languages"
-          path: "/metrics_renders/"
-          retention-days: 1
-
-  generate-notable-historical-metrics:
-    name: "Generate notable historical contributions metrics"
-    runs-on: "ubuntu-latest"
-    if: "github.event_name != 'pull_request'"
-    permissions: {}
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v6"
-      - name: "Setup Node"
-        uses: "actions/setup-node@v7"
-        with:
-          node-version: "22"
-      - name: "Generate metrics"
-        run: "node .github/scripts/notable-historical.mjs"
-        env:
-          GITHUB_TOKEN: "${{ secrets.METRICS_TOKEN }}"
-          GITHUB_LOGIN: "${{ github.repository_owner }}"
-      - name: "Upload artifacts"
-        uses: "actions/upload-artifact@v7"
-        with:
-          name: "metrics-notable-historical"
-          path: "metrics/notable-historical.svg"
-          retention-days: 1
-
-  publish-metrics:
-    name: "Publish metrics"
-    if: "github.ref == 'refs/heads/main'"
-    needs:
-      - "generate-repositories-metrics"
-      - "generate-plugin-languages-metrics"
-      - "generate-notable-historical-metrics"
+  metrics:
+    name: "Generate and publish metrics"
     runs-on: "ubuntu-latest"
     permissions:
-      contents: "write"
+      contents: "read"
     steps:
       - name: "Generate app token"
         id: "app-token"
+        if: "github.ref == 'refs/heads/main'"
         uses: "actions/create-github-app-token@v3"
         with:
           app-id: "${{ secrets.APP_ID }}"
@@ -134,20 +37,23 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v6"
         with:
-          ref: "${{ github.ref }}"
-          token: "${{ steps.app-token.outputs.token }}"
-      - name: "Download artifacts"
-        uses: "actions/download-artifact@v8"
+          token: "${{ steps.app-token.outputs.token || github.token }}"
+      - name: "Setup Node"
+        uses: "actions/setup-node@v7"
         with:
-          pattern: "metrics-*"
-          path: "./metrics/"
-          merge-multiple: true
+          node-version: "24"
+      - name: "Generate notable contributions and recent pull requests"
+        run: "node .github/scripts/notable-historical.mjs"
+        env:
+          GITHUB_TOKEN: "${{ secrets.METRICS_TOKEN }}"
+          GITHUB_LOGIN: "${{ github.repository_owner }}"
       - name: "Publish"
+        if: "github.ref == 'refs/heads/main'"
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          if [ -n "$(git status --porcelain=v1 ./metrics/)" ]; then
-            git add ./metrics/
+          if [ -n "$(git status --porcelain=v1 ./metrics/ README.md)" ]; then
+            git add ./metrics/ README.md
             git commit -m "[skip ci] Metrics $(date -Iseconds)"
             git push
           fi
