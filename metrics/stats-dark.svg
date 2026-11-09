@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="226" viewBox="0 0 800 226" role="img" aria-labelledby="title desc">
   <title id="title">At a glance</title>
-  <desc id="desc">10,065 contributions since 2015: 2,022 commits, 912 pull requests, 532 code reviews, 128 issues, 21 merged upstream, 16 public repositories, 4 stars earned, 11 followers.</desc>
+  <desc id="desc">10,067 contributions since 2015: 2,022 commits, 912 pull requests, 534 code reviews, 128 issues, 21 merged upstream, 16 public repositories, 4 stars earned, 10 followers.</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -10,9 +10,9 @@
   <text class="t" x="800" y="28" font-size="13" text-anchor="end" fill="#A3ADB5">@gjed on GitHub</text>
   <rect x="0" y="40" width="800" height="2" fill="#8A57A0"/>
   <g>
-    <text class="d" x="0" y="128" font-size="60" font-weight="500" fill="#ECE6DA">10,065</text>
+    <text class="d" x="0" y="128" font-size="60" font-weight="500" fill="#ECE6DA">10,067</text>
     <text class="t" x="0" y="156" font-size="14" fill="#ECE6DA">contributions since 2015</text>
-    <text class="t" x="0" y="178" font-size="13" fill="#A3ADB5">11 years on GitHub · 8,444 in 2026</text>
+    <text class="t" x="0" y="178" font-size="13" fill="#A3ADB5">11 years on GitHub · 8,446 in 2026</text>
   </g>
   <rect x="256" y="76" width="1" height="140" fill="#2E3740"/>
   <rect x="280" y="146" width="520" height="1" fill="#2E3740"/>
@@ -25,7 +25,7 @@
     <text class="t" x="426" y="128" font-size="12.5" fill="#A3ADB5">Pull requests</text>
   </g>
   <g>
-    <text class="d" x="556" y="108" font-size="30" font-weight="500" fill="#ECE6DA">532</text>
+    <text class="d" x="556" y="108" font-size="30" font-weight="500" fill="#ECE6DA">534</text>
     <text class="t" x="556" y="128" font-size="12.5" fill="#A3ADB5">Code reviews</text>
   </g>
   <g>
@@ -45,7 +45,7 @@
     <text class="t" x="556" y="204" font-size="12.5" fill="#A3ADB5">Stars earned</text>
   </g>
   <g>
-    <text class="d" x="686" y="184" font-size="30" font-weight="500" fill="#ECE6DA">11</text>
+    <text class="d" x="686" y="184" font-size="30" font-weight="500" fill="#ECE6DA">10</text>
     <text class="t" x="686" y="204" font-size="12.5" fill="#A3ADB5">Followers</text>
   </g>
 </svg>
