@@ -10,7 +10,7 @@ I'm Marco Pernigo. I run release engineering, CI and observability for
 try things before they reach work.
 
 Most of what I build is small infrastructure tooling: GitHub managed from YAML,
-Renovate configuration, OpenTelemetry exporters and Grafana dashboards. I keep
+OpenTelemetry exporters and Grafana dashboards. I keep
 it maintained, tested and documented. When something upstream gets in the way, I
 send the fix back: Grafana, the Grafana Tempo Helm chart, zot, Apache Camel and
 awesome-prometheus-alerts have merged changes of mine.
@@ -31,16 +31,8 @@ awesome-prometheus-alerts have merged changes of mine.
   is a Terraform module that manages a GitHub organization from YAML;
   [github-configs-public](https://github.com/gjed/github-configs-public) manages
   my own repositories with it.
-- **Dependencies:** [renovate-config](https://github.com/gjed/renovate-config)
-  is the shared Renovate preset and self-hosted GitHub App runner for every gjed
-  repository.
 - **Homelab:** Kubernetes with k3s and Flux, Proxmox and AWS managed with
   OpenTofu, OPNsense.
-- **Talks and workshops:**
-  [demo-otel-weaver](https://github.com/gjed/demo-otel-weaver), the demo for a
-  talk on OpenTelemetry Weaver;
-  [workshop-2026-k8s](https://github.com/gjed/workshop-2026-k8s), a Kubernetes
-  workshop for IDI DevOps Bologna 2026.
 
 ## Recently merged upstream
 
