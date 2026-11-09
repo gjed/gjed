@@ -10,7 +10,7 @@ I'm Marco Pernigo. I run release engineering, CI and observability for
 try things before they reach work.
 
 Most of what I build is small infrastructure tooling: GitHub managed from YAML,
-Renovate configuration, OpenTelemetry exporters and Grafana dashboards. I keep
+OpenTelemetry exporters and Grafana dashboards. I keep
 it maintained, tested and documented. When something upstream gets in the way, I
 send the fix back: Grafana, the Grafana Tempo Helm chart, zot, Apache Camel and
 awesome-prometheus-alerts have merged changes of mine.
@@ -31,16 +31,28 @@ awesome-prometheus-alerts have merged changes of mine.
   is a Terraform module that manages a GitHub organization from YAML;
   [github-configs-public](https://github.com/gjed/github-configs-public) manages
   my own repositories with it.
-- **Dependencies:** [renovate-config](https://github.com/gjed/renovate-config)
-  is the shared Renovate preset and self-hosted GitHub App runner for every gjed
-  repository.
 - **Homelab:** Kubernetes with k3s and Flux, Proxmox and AWS managed with
   OpenTofu, OPNsense.
-- **Talks and workshops:**
-  [demo-otel-weaver](https://github.com/gjed/demo-otel-weaver), the demo for a
-  talk on OpenTelemetry Weaver;
-  [workshop-2026-k8s](https://github.com/gjed/workshop-2026-k8s), a Kubernetes
-  workshop for IDI DevOps Bologna 2026.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="metrics/stats-dark.svg">
+  <img alt="GitHub activity at a glance: contributions, commits, pull requests, reviews, issues, stars and followers" src="metrics/stats-light.svg" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="metrics/activity-dark.svg">
+  <img alt="Contributions per year since the account was created" src="metrics/activity-light.svg" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="metrics/languages-dark.svg">
+  <img alt="Most used languages across my public repositories" src="metrics/languages-light.svg" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="metrics/notable-dark.svg">
+  <img alt="Projects I have had pull requests merged into, ranked by stars" src="metrics/notable-light.svg" width="100%">
+</picture>
 
 ## Recently merged upstream
 
@@ -55,9 +67,8 @@ awesome-prometheus-alerts have merged changes of mine.
 
 <!-- recent-prs:end -->
 
-## Notable contributions
+<!-- updated:start -->
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="metrics/notable-historical-dark.svg">
-  <img alt="Pull requests I have had merged into other people's repositories, ranked by stars" src="metrics/notable-historical-light.svg" width="480">
-</picture>
+<p align="center"><sub>Cards regenerated daily by a GitHub Actions workflow · last run 2026-11-09</sub></p>
+
+<!-- updated:end -->

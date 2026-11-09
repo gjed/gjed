@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="224" viewBox="0 0 800 224" role="img" aria-labelledby="title desc">
+  <title id="title">Most used languages</title>
+  <desc id="desc">Go 37.8%, Python 32.2%, HCL 9.0%, CSS 6.1%, JavaScript 3.5%, Shell 3.1%, Other 8.3%</desc>
+  <style>
+    .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
+    .m { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+  <text class="d" x="1" y="28" font-size="24" font-weight="500" fill="#13181D">Most used languages</text>
+  <text class="t" x="800" y="28" font-size="13" text-anchor="end" fill="#4F5B66">by code size across 12 public repositories</text>
+  <rect x="0" y="40" width="800" height="2" fill="#55305F"/>
+  <rect x="0.0" y="68" width="295.7" height="14" fill="#55305F"/>
+  <rect x="298.7" y="68" width="251.9" height="14" fill="#1F3A4D"/>
+  <rect x="553.6" y="68" width="70.6" height="14" fill="#3D5E74"/>
+  <rect x="627.2" y="68" width="47.6" height="14" fill="#5F8299"/>
+  <rect x="677.8" y="68" width="27.5" height="14" fill="#87A5B8"/>
+  <rect x="708.3" y="68" width="24.2" height="14" fill="#AFC4D2"/>
+  <rect x="735.5" y="68" width="64.5" height="14" fill="#B5AC9C"/>
+  <g>
+    <rect x="0" y="111" width="10" height="10" fill="#55305F"/>
+    <text class="t" x="20" y="120.5" font-size="14" fill="#13181D" font-weight="600">Go</text>
+    <text class="m" x="376" y="120.5" font-size="13" text-anchor="end" fill="#4F5B66">38%</text>
+    <rect x="0" y="132" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+  <g>
+    <rect x="0" y="141" width="10" height="10" fill="#1F3A4D"/>
+    <text class="t" x="20" y="150.5" font-size="14" fill="#13181D">Python</text>
+    <text class="m" x="376" y="150.5" font-size="13" text-anchor="end" fill="#4F5B66">32%</text>
+    <rect x="0" y="162" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+  <g>
+    <rect x="0" y="171" width="10" height="10" fill="#3D5E74"/>
+    <text class="t" x="20" y="180.5" font-size="14" fill="#13181D">HCL</text>
+    <text class="m" x="376" y="180.5" font-size="13" text-anchor="end" fill="#4F5B66">9.0%</text>
+    <rect x="0" y="192" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+  <g>
+    <rect x="0" y="201" width="10" height="10" fill="#5F8299"/>
+    <text class="t" x="20" y="210.5" font-size="14" fill="#13181D">CSS</text>
+    <text class="m" x="376" y="210.5" font-size="13" text-anchor="end" fill="#4F5B66">6.1%</text>
+    <rect x="0" y="222" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+  <g>
+    <rect x="424" y="111" width="10" height="10" fill="#87A5B8"/>
+    <text class="t" x="444" y="120.5" font-size="14" fill="#13181D">JavaScript</text>
+    <text class="m" x="800" y="120.5" font-size="13" text-anchor="end" fill="#4F5B66">3.5%</text>
+    <rect x="424" y="132" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+  <g>
+    <rect x="424" y="141" width="10" height="10" fill="#AFC4D2"/>
+    <text class="t" x="444" y="150.5" font-size="14" fill="#13181D">Shell</text>
+    <text class="m" x="800" y="150.5" font-size="13" text-anchor="end" fill="#4F5B66">3.1%</text>
+    <rect x="424" y="162" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+  <g>
+    <rect x="424" y="171" width="10" height="10" fill="#B5AC9C"/>
+    <text class="t" x="444" y="180.5" font-size="14" fill="#13181D">Other</text>
+    <text class="m" x="800" y="180.5" font-size="13" text-anchor="end" fill="#4F5B66">8.3%</text>
+    <rect x="424" y="192" width="376" height="1" fill="#D6CFC2"/>
+  </g>
+</svg>
