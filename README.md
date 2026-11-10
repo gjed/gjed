@@ -69,6 +69,6 @@ awesome-prometheus-alerts have merged changes of mine.
 
 <!-- updated:start -->
 
-<p align="center"><sub>Cards regenerated daily by a GitHub Actions workflow · last run 2026-11-09</sub></p>
+<p align="center"><sub>Cards regenerated daily by a GitHub Actions workflow · last run 2026-11-10</sub></p>
 
 <!-- updated:end -->
