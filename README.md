@@ -36,12 +36,12 @@ awesome-prometheus-alerts have merged changes of mine.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metrics/stats-dark.svg">
-  <img alt="GitHub activity at a glance: contributions, commits, pull requests, reviews, issues, stars and followers" src="metrics/stats-light.svg" width="100%">
+  <img alt="GitHub activity at a glance: contributions, an activity overview of the last 12 months, commits, pull requests, reviews, issues, stars and followers" src="metrics/stats-light.svg" width="100%">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="metrics/activity-dark.svg">
-  <img alt="Contributions per year since the account was created" src="metrics/activity-light.svg" width="100%">
+  <img alt="Contributions per year since the account was created, split into commits, pull requests with issues and code reviews, and private contributions" src="metrics/activity-light.svg" width="100%">
 </picture>
 
 <picture>
@@ -50,8 +50,8 @@ awesome-prometheus-alerts have merged changes of mine.
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="metrics/notable-dark.svg">
-  <img alt="Projects I have had pull requests merged into, ranked by stars" src="metrics/notable-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="metrics/upstream-dark.svg">
+  <img alt="Upstream contributions: projects outside my account where my pull requests were merged, ranked by stars" src="metrics/upstream-light.svg" width="100%">
 </picture>
 
 ## Recently merged upstream

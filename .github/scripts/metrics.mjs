@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Collects GITHUB_LOGIN's GitHub activity and renders the profile cards
-// (metrics/{stats,activity,languages,notable}-{light,dark}.svg), then rewrites
+// (metrics/{stats,activity,languages,upstream}-{light,dark}.svg), then rewrites
 // the recent-prs and updated blocks of README.md.
 //
 // Privacy: the token can see private repositories. Private work only ever
@@ -21,7 +21,7 @@ const API_ROOT = "https://api.github.com";
 const USER_AGENT = "gjed-profile-metrics";
 const MAX_SEARCH_RESULTS = 1000;
 const SEARCH_PER_PAGE = 100;
-const MAX_NOTABLE = 14;
+const MAX_UPSTREAM = 14;
 const MAX_RECENT_PRS = 6;
 const MAX_LANGUAGES = 6;
 // Work at Zextras is the day job, not upstream contribution.
@@ -65,6 +65,12 @@ async function fetchProfile(login, token) {
     user(login: $login) {
       createdAt
       followers { totalCount }
+      lastYear: contributionsCollection {
+        totalCommitContributions
+        totalPullRequestContributions
+        totalIssueContributions
+        totalPullRequestReviewContributions
+      }
       repositories(first: 100, after: $after, ownerAffiliations: OWNER, privacy: PUBLIC, isFork: false) {
         pageInfo { hasNextPage endCursor }
         nodes {
@@ -83,7 +89,19 @@ async function fetchProfile(login, token) {
     repos.push(...user.repositories.nodes);
     after = user.repositories.pageInfo.hasNextPage ? user.repositories.pageInfo.endCursor : null;
   } while (after);
-  return { createdAt: user.createdAt, followers: user.followers.totalCount, repos };
+  const y = user.lastYear;
+  return {
+    createdAt: user.createdAt,
+    followers: user.followers.totalCount,
+    // The window GitHub's own "Activity overview" uses: the last year to now.
+    lastYear: {
+      commits: y.totalCommitContributions,
+      pullRequests: y.totalPullRequestContributions,
+      issues: y.totalIssueContributions,
+      reviews: y.totalPullRequestReviewContributions,
+    },
+    repos,
+  };
 }
 
 /**
@@ -210,8 +228,8 @@ async function collect(login, token, now) {
   for (const pr of publicPrs) prCount.set(pr.fullName, (prCount.get(pr.fullName) || 0) + 1);
 
   const avatars = new Map();
-  const notable = [];
-  for (const meta of [...metas.values()].sort((a, b) => b.stargazersCount - a.stargazersCount).slice(0, MAX_NOTABLE)) {
+  const upstream = [];
+  for (const meta of [...metas.values()].sort((a, b) => b.stargazersCount - a.stargazersCount).slice(0, MAX_UPSTREAM)) {
     if (meta.avatarUrl && !avatars.has(meta.avatarUrl)) {
       try {
         avatars.set(meta.avatarUrl, await toDataUri(meta.avatarUrl));
@@ -220,7 +238,7 @@ async function collect(login, token, now) {
         avatars.set(meta.avatarUrl, null);
       }
     }
-    notable.push({
+    upstream.push({
       fullName: meta.fullName,
       stargazersCount: meta.stargazersCount,
       mergedPrCount: prCount.get(meta.fullName) || 0,
@@ -248,9 +266,10 @@ async function collect(login, token, now) {
       yearsOnGitHub: yearsSince(profile.createdAt, now),
     },
     years,
+    lastYear: profile.lastYear,
     languages: aggregateLanguages(languageRepos),
     languageRepos: languageRepos.length,
-    notable,
+    upstream,
     recentPrs: publicPrs
       .sort((a, b) => String(b.mergedAt).localeCompare(String(a.mergedAt)))
       .slice(0, MAX_RECENT_PRS),
@@ -308,7 +327,7 @@ async function main() {
   const t = data.totals;
   console.log(
     `metrics: ${t.contributions} contributions since ${t.firstYear}, ${data.languages.length} languages, ` +
-      `${data.notable.length} notable repos, ${data.recentPrs.length} recent PRs written to ${README_PATH}`,
+      `${data.upstream.length} upstream repos, ${data.recentPrs.length} recent PRs written to ${README_PATH}`,
   );
 }
 
