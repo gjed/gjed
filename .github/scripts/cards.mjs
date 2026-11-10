@@ -16,6 +16,7 @@ export const THEMES = {
     accent: "#55305F", // Plum
     perch: "#55305F",
     sea: "#1F3A4D",
+    seaMid: "#6B8BA0",
     // Language ramp: the top language takes the accent, the rest step down Sea.
     ramp: ["#55305F", "#1F3A4D", "#3D5E74", "#5F8299", "#87A5B8", "#AFC4D2"],
     other: "#B5AC9C",
@@ -27,6 +28,7 @@ export const THEMES = {
     accent: "#C990E0", // Orchid
     perch: "#8A57A0", // Plum-mid, the mark's shade on dark grounds
     sea: "#8FB4C8",
+    seaMid: "#4A6E84",
     ramp: ["#C990E0", "#8FB4C8", "#6D93A8", "#53778C", "#456A80", "#3A5568"],
     other: "#4F5B66",
   },
@@ -95,6 +97,52 @@ function frame({ theme, title, note, height, body, desc }) {
 // At a glance
 // ---------------------------------------------------------------------------
 
+/**
+ * GitHub's "Activity overview" cross: four axes (Code review up, Issues right,
+ * Pull requests down, Commits left), each point at its share of the last
+ * year's commits + pull requests + issues + reviews, joined into a shape.
+ */
+function activityCross(lastYear, cx, cy, r, theme) {
+  const parts = [
+    { key: "reviews", label: "Code review", dx: 0, dy: -1 },
+    { key: "issues", label: "Issues", dx: 1, dy: 0 },
+    { key: "pullRequests", label: "Pull requests", dx: 0, dy: 1 },
+    { key: "commits", label: "Commits", dx: -1, dy: 0 },
+  ];
+  const total = parts.reduce((s, p) => s + (lastYear[p.key] || 0), 0);
+  const share = (p) => (total ? (lastYear[p.key] || 0) / total : 0);
+  // A floor keeps a 0-4% axis from collapsing the shape onto the centre.
+  const points = parts.map((p) => {
+    const d = Math.max(share(p) * r, 3);
+    return [cx + p.dx * d, cy + p.dy * d];
+  });
+  const poly = points.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+
+  let out = `
+  <g stroke="${theme.muted}" stroke-opacity="0.8" stroke-width="1">
+    <line x1="${cx - r}" y1="${cy}" x2="${cx + r}" y2="${cy}"/>
+    <line x1="${cx}" y1="${cy - r}" x2="${cx}" y2="${cy + r}"/>
+  </g>
+  <polygon points="${poly}" fill="${theme.accent}" fill-opacity="0.16" stroke="${theme.accent}" stroke-width="2" stroke-linejoin="round"/>`;
+  for (const [x, y] of points) {
+    out += `
+  <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${theme.accent}"/>`;
+  }
+
+  parts.forEach((p) => {
+    const pct = `${Math.round(share(p) * 100)}%`;
+    let px; let py; let anchor;
+    if (p.dy === -1) [px, py, anchor] = [cx, cy - r - 24, "middle"];
+    else if (p.dy === 1) [px, py, anchor] = [cx, cy + r + 18, "middle"];
+    else if (p.dx === 1) [px, py, anchor] = [cx + r + 8, cy - 3, "start"];
+    else [px, py, anchor] = [cx - r - 8, cy - 3, "end"];
+    out += `
+  <text class="t" x="${px}" y="${py}" font-size="13" font-weight="600" text-anchor="${anchor}" fill="${theme.ink}">${pct}</text>
+  <text class="t" x="${px}" y="${py + 15}" font-size="12" text-anchor="${anchor}" fill="${theme.muted}">${p.label}</text>`;
+  });
+  return out;
+}
+
 export function renderStats(data, theme) {
   const t = data.totals;
   const tiles = [
@@ -108,38 +156,48 @@ export function renderStats(data, theme) {
     [fmt(t.followers), "Followers"],
   ];
 
+  // Three columns: the headline number, the activity cross, the totals.
   const top = HEADER + 6;
-  const rowH = 76;
-  const heroW = 248;
-  const gridX = heroW + 32;
-  const colW = (WIDTH - gridX) / 4;
+  const height = 232;
+  const heroW = 224;
+  const gridX = 540;
+  const gridColW = (WIDTH - gridX) / 2;
+  const rowH = height / 4;
+  const crossCx = heroW + (gridX - heroW) / 2;
+  const crossCy = top + height / 2 + 2;
 
   let body = `
-  <g>
-    <text class="d" x="0" y="${top + 58}" font-size="60" font-weight="500" fill="${theme.ink}">${fmt(t.contributions)}</text>
-    <text class="t" x="0" y="${top + 86}" font-size="14" fill="${theme.ink}">contributions since ${t.firstYear}</text>
-    <text class="t" x="0" y="${top + 108}" font-size="13" fill="${theme.muted}">${t.yearsOnGitHub} years on GitHub · ${fmt(t.contributionsThisYear)} in ${data.years.at(-1).year}</text>
-  </g>
-  <rect x="${heroW + 8}" y="${top + 6}" width="1" height="${rowH * 2 - 12}" fill="${theme.hairline}"/>
-  <rect x="${gridX}" y="${top + rowH}" width="${WIDTH - gridX}" height="1" fill="${theme.hairline}"/>`;
+  <text class="d" x="0" y="${top + 58}" font-size="60" font-weight="500" fill="${theme.ink}">${fmt(t.contributions)}</text>
+  <text class="t" x="0" y="${top + 86}" font-size="14" fill="${theme.ink}">contributions since ${t.firstYear}</text>
+  <text class="t" x="0" y="${top + 108}" font-size="13" fill="${theme.muted}">${fmt(t.contributionsThisYear)} so far in ${data.years.at(-1).year}</text>
+  <text class="t" x="0" y="${top + 128}" font-size="13" fill="${theme.muted}">${t.yearsOnGitHub} years on GitHub</text>
+  <text class="t" x="0" y="${top + height - 18}" font-size="12" fill="${theme.muted}">Activity overview, last 12 months</text>
+  <text class="t" x="0" y="${top + height - 2}" font-size="12" fill="${theme.muted}">as GitHub draws it on the profile</text>
+  <rect x="${heroW}" y="${top + 6}" width="1" height="${height - 12}" fill="${theme.hairline}"/>
+  <rect x="${gridX - 16}" y="${top + 6}" width="1" height="${height - 12}" fill="${theme.hairline}"/>${activityCross(data.lastYear, crossCx, crossCy, 74, theme)}`;
 
   tiles.forEach(([value, label], i) => {
-    const x = gridX + (i % 4) * colW + (i % 4 === 0 ? 0 : 16);
-    const y = top + Math.floor(i / 4) * rowH;
+    const x = gridX + (i % 2) * gridColW + (i % 2 ? 12 : 0);
+    const y = top + Math.floor(i / 2) * rowH;
     body += `
-  <g>
-    <text class="d" x="${x}" y="${y + 38}" font-size="30" font-weight="500" fill="${theme.ink}">${value}</text>
-    <text class="t" x="${x}" y="${y + 58}" font-size="12.5" fill="${theme.muted}">${label}</text>
-  </g>`;
+  <text class="d" x="${x}" y="${y + 30}" font-size="26" font-weight="500" fill="${theme.ink}">${value}</text>
+  <text class="t" x="${x}" y="${y + 47}" font-size="12.5" fill="${theme.muted}">${label}</text>`;
+    if (i < tiles.length - 2 && i % 2 === 0) {
+      body += `
+  <rect x="${gridX}" y="${(y + rowH - 1).toFixed(1)}" width="${WIDTH - gridX}" height="1" fill="${theme.hairline}"/>`;
+    }
   });
 
+  const ly = data.lastYear;
   return frame({
     theme,
     title: "At a glance",
     note: `@${data.login} on GitHub`,
-    height: top + rowH * 2 + 4,
+    height: top + height + 4,
     body,
-    desc: `${fmt(t.contributions)} contributions since ${t.firstYear}: ${tiles.map(([v, l]) => `${v} ${l.toLowerCase()}`).join(", ")}.`,
+    desc:
+      `${fmt(t.contributions)} contributions since ${t.firstYear}: ${tiles.map(([v, l]) => `${v} ${l.toLowerCase()}`).join(", ")}. ` +
+      `Last 12 months: ${fmt(ly.commits)} commits, ${fmt(ly.pullRequests)} pull requests, ${fmt(ly.issues)} issues, ${fmt(ly.reviews)} code reviews.`,
   });
 }
 
@@ -149,33 +207,46 @@ export function renderStats(data, theme) {
 
 export function renderActivity(data, theme) {
   const years = data.years;
-  const max = Math.max(1, ...years.map((y) => y.total));
+  // Bottom to top: commits, the collaboration work, then private contributions
+  // (GitHub only reports them as a count, so they are hatched, never named).
+  const series = [
+    { label: "Commits", value: (y) => y.commits, fill: theme.sea },
+    { label: "Pull requests, issues and code reviews", value: (y) => y.pullRequests + y.issues + y.reviews, fill: theme.seaMid },
+    { label: "Private, counted but not named", value: (y) => y.private, fill: "url(#hatch)" },
+  ];
+  const stackOf = (y) => series.reduce((s, se) => s + se.value(y), 0);
+  const max = Math.max(1, ...years.map(stackOf));
   const chartTop = HEADER + 28; // room for the value label over the tallest bar
-  const chartH = 150;
+  const chartH = 160;
   const base = chartTop + chartH;
   const slot = WIDTH / years.length;
   const barW = Math.min(36, slot * 0.56);
   const current = years.at(-1).year;
 
-  let body = "";
+  let body = `
+  <defs>
+    <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="5" height="5" fill="${theme.muted}" fill-opacity="0.14"/>
+      <rect width="1.6" height="5" fill="${theme.muted}" fill-opacity="0.75"/>
+    </pattern>
+  </defs>`;
   years.forEach((y, i) => {
     const cx = slot * i + slot / 2;
     const x = (cx - barW / 2).toFixed(1);
     const isCurrent = y.year === current;
-    const totalH = (y.total / max) * chartH;
-    const privH = (y.private / max) * chartH;
-    const pubH = totalH - privH;
-
-    if (y.total > 0) {
-      // Public contributions sit on the baseline in Sea; private ones (counted,
-      // never named) stack on top in a lighter wash of the same Sea.
-      const h = Math.max(totalH, 2);
+    let top = base;
+    for (const se of series) {
+      const v = se.value(y);
+      if (v <= 0) continue;
+      // Any non-zero segment gets at least 2px so it does not vanish.
+      const h = Math.max((v / max) * chartH, 2);
+      top -= h;
       body += `
-  <g>
-    <rect x="${x}" y="${(base - h).toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" fill="${theme.sea}" fill-opacity="0.32"/>
-    <rect x="${x}" y="${(base - Math.max(pubH, y.total > y.private ? 2 : 0)).toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(pubH, y.total > y.private ? 2 : 0).toFixed(1)}" fill="${theme.sea}"/>
-  </g>
-  <text class="t" x="${cx.toFixed(1)}" y="${(base - h - 8).toFixed(1)}" font-size="12" text-anchor="middle" fill="${isCurrent ? theme.accent : theme.muted}"${isCurrent ? ' font-weight="600"' : ""}>${fmt(y.total)}</text>`;
+  <rect x="${x}" y="${top.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" fill="${se.fill}"/>`;
+    }
+    if (y.total > 0) {
+      body += `
+  <text class="t" x="${cx.toFixed(1)}" y="${(top - 8).toFixed(1)}" font-size="12" text-anchor="middle" fill="${isCurrent ? theme.accent : theme.muted}"${isCurrent ? ' font-weight="600"' : ""}>${fmt(y.total)}</text>`;
     }
     body += `
   <text class="t" x="${cx.toFixed(1)}" y="${base + 22}" font-size="12.5" text-anchor="middle" fill="${isCurrent ? theme.ink : theme.muted}"${isCurrent ? ' font-weight="600"' : ""}>${y.year}</text>`;
@@ -184,13 +255,19 @@ export function renderActivity(data, theme) {
   body += `
   <rect x="0" y="${base}" width="${WIDTH}" height="1" fill="${theme.hairline}"/>`;
 
-  const legendY = base + 52;
+  // Legend: swatch, label, all-time count, laid out left to right.
+  const legendY = base + 54;
+  let lx = 0;
   body += `
-  <g class="t" font-size="12.5" fill="${theme.muted}">
-    <rect x="0" y="${legendY - 10}" width="12" height="12" fill="${theme.sea}"/>
-    <text x="20" y="${legendY}">Public contributions</text>
-    <rect x="170" y="${legendY - 10}" width="12" height="12" fill="${theme.sea}" fill-opacity="0.32"/>
-    <text x="190" y="${legendY}">Private contributions, counted but not named</text>
+  <g class="t" font-size="12.5">`;
+  for (const se of series) {
+    const sum = years.reduce((s, y) => s + se.value(y), 0);
+    body += `
+    <rect x="${lx}" y="${legendY - 10}" width="12" height="12" fill="${se.fill}"/>
+    <text x="${lx + 18}" y="${legendY}" fill="${theme.muted}">${se.label} <tspan fill="${theme.ink}" font-weight="600">${fmt(sum)}</tspan></text>`;
+    lx += 18 + textWidth(`${se.label} ${fmt(sum)}`, 12.5) + 28;
+  }
+  body += `
   </g>`;
 
   const total = years.reduce((s, y) => s + y.total, 0);
@@ -200,7 +277,9 @@ export function renderActivity(data, theme) {
     note: `${fmt(total)} since ${years[0].year}`,
     height: legendY + 6,
     body,
-    desc: years.map((y) => `${y.year}: ${fmt(y.total)}`).join(", "),
+    desc: years
+      .map((y) => `${y.year}: ${fmt(y.total)} (${series.map((se) => `${fmt(se.value(y))} ${se.label.toLowerCase()}`).join(", ")})`)
+      .join("; "),
   });
 }
 
@@ -259,17 +338,17 @@ export function renderLanguages(data, theme) {
 }
 
 // ---------------------------------------------------------------------------
-// Notable contributions
+// Upstream contributions
 // ---------------------------------------------------------------------------
 
-export function renderNotable(data, theme) {
-  const entries = data.notable;
+export function renderUpstream(data, theme) {
+  const entries = data.upstream;
   const top = HEADER - 4;
   if (entries.length === 0) {
     return frame({
       theme,
-      title: "Notable contributions",
-      note: "projects I have had pull requests merged into",
+      title: "Upstream contributions",
+      note: "merged pull requests in other people's projects",
       height: top + 40,
       body: `
   <text class="t" x="0" y="${top + 24}" font-size="14" fill="${theme.muted}">No merged pull requests found yet.</text>`,
@@ -314,8 +393,8 @@ export function renderNotable(data, theme) {
 
   return frame({
     theme,
-    title: "Notable contributions",
-    note: "projects I have had pull requests merged into, by stars",
+    title: "Upstream contributions",
+    note: "merged pull requests in other people's projects, by stars",
     height: top + rows * rowH + 2,
     body,
     desc: entries.map((e) => `${e.fullName} (${e.stargazersCount} stars, ${e.mergedPrCount} merged)`).join(", "),
@@ -326,5 +405,5 @@ export const CARDS = {
   stats: renderStats,
   activity: renderActivity,
   languages: renderLanguages,
-  notable: renderNotable,
+  upstream: renderUpstream,
 };
