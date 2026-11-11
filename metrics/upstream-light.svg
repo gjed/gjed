@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="454" viewBox="0 0 800 454" role="img" aria-labelledby="title desc">
   <title id="title">Upstream contributions</title>
-  <desc id="desc">grafana/grafana (77814 stars, 2 merged), samber/awesome-prometheus-alerts (8250 stars, 1 merged), apache/camel (6401 stars, 3 merged), project-zot/zot (2986 stars, 1 merged), grafana/helm-charts (2013 stars, 1 merged), kiegroup/appformer (189 stars, 1 merged), openartifact/openartifact (121 stars, 6 merged), kiegroup/drools-wb (109 stars, 1 merged), kiegroup/kie-wb-distributions (76 stars, 1 merged), kiegroup/jbpm-wb (55 stars, 1 merged), kiegroup/kie-wb-common (45 stars, 1 merged), sighupio/workshop-material (7 stars, 1 merged), openartifact/helm-charts (0 stars, 1 merged)</desc>
+  <desc id="desc">grafana/grafana (77830 stars, 2 merged), samber/awesome-prometheus-alerts (8251 stars, 1 merged), apache/camel (6405 stars, 3 merged), project-zot/zot (2990 stars, 1 merged), grafana/helm-charts (2013 stars, 1 merged), kiegroup/appformer (189 stars, 1 merged), openartifact/openartifact (122 stars, 6 merged), kiegroup/drools-wb (109 stars, 1 merged), kiegroup/kie-wb-distributions (76 stars, 1 merged), kiegroup/jbpm-wb (55 stars, 1 merged), kiegroup/kie-wb-common (45 stars, 1 merged), sighupio/workshop-material (7 stars, 1 merged), openartifact/helm-charts (0 stars, 1 merged)</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -63,7 +63,7 @@
     <circle cx="16" cy="424" r="15.5" fill="none" stroke="#D6CFC2"/>
     <text class="m" x="46" y="421" font-size="13" fill="#4F5B66">openartifact/<tspan fill="#13181D">openartifact</tspan></text>
     <text class="t" x="46" y="439" font-size="12.5" fill="#4F5B66">6 merged PRs</text>
-    <text class="d" x="376" y="429" font-size="20" text-anchor="end" fill="#13181D">121<tspan class="t" font-size="12" fill="#4F5B66" dx="4">stars</tspan></text>
+    <text class="d" x="376" y="429" font-size="20" text-anchor="end" fill="#13181D">122<tspan class="t" font-size="12" fill="#4F5B66" dx="4">stars</tspan></text>
   </g>
   <rect x="0" y="451" width="376" height="1" fill="#D6CFC2"/>
   <g>
