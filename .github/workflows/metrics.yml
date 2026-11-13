@@ -41,7 +41,7 @@ jobs:
       - name: "Setup Node"
         uses: "actions/setup-node@v7"
         with:
-          node-version: "24"
+          node-version: "26"
       - name: "Generate profile cards and README blocks"
         run: "node .github/scripts/metrics.mjs"
         env:
