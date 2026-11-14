@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="306" viewBox="0 0 800 306" role="img" aria-labelledby="title desc">
   <title id="title">At a glance</title>
-  <desc id="desc">10,201 contributions since 2015: 2,070 commits, 918 pull requests, 540 code reviews, 129 issues, 21 merged upstream, 16 public repositories, 5 stars earned, 11 followers. Last 12 months: 1,892 commits, 765 pull requests, 120 issues, 501 code reviews.</desc>
+  <desc id="desc">10,215 contributions since 2015: 2,070 commits, 918 pull requests, 540 code reviews, 129 issues, 21 merged upstream, 16 public repositories, 5 stars earned, 11 followers. Last 12 months: 1,892 commits, 765 pull requests, 120 issues, 501 code reviews.</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -9,9 +9,9 @@
   <text class="d" x="1" y="28" font-size="24" font-weight="500" fill="#ECE6DA">At a glance</text>
   <text class="t" x="800" y="28" font-size="13" text-anchor="end" fill="#A3ADB5">@gjed on GitHub</text>
   <rect x="0" y="40" width="800" height="2" fill="#8A57A0"/>
-  <text class="d" x="0" y="128" font-size="60" font-weight="500" fill="#ECE6DA">10,201</text>
+  <text class="d" x="0" y="128" font-size="60" font-weight="500" fill="#ECE6DA">10,215</text>
   <text class="t" x="0" y="156" font-size="14" fill="#ECE6DA">contributions since 2015</text>
-  <text class="t" x="0" y="178" font-size="13" fill="#A3ADB5">8,580 so far in 2026</text>
+  <text class="t" x="0" y="178" font-size="13" fill="#A3ADB5">8,594 so far in 2026</text>
   <text class="t" x="0" y="198" font-size="13" fill="#A3ADB5">11 years on GitHub</text>
   <text class="t" x="0" y="284" font-size="12" fill="#A3ADB5">Activity overview, last 12 months</text>
   <text class="t" x="0" y="300" font-size="12" fill="#A3ADB5">as GitHub draws it on the profile</text>
