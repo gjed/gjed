@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="224" viewBox="0 0 800 224" role="img" aria-labelledby="title desc">
   <title id="title">Most used languages</title>
-  <desc id="desc">Go 45.6%, Python 27.9%, HCL 7.8%, CSS 5.2%, JavaScript 3.1%, HTML 2.7%, Other 7.6%</desc>
+  <desc id="desc">Go 45.8%, Python 27.8%, HCL 7.7%, CSS 5.2%, JavaScript 3.1%, HTML 2.7%, Other 7.6%</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -9,12 +9,12 @@
   <text class="d" x="1" y="28" font-size="24" font-weight="500" fill="#13181D">Most used languages</text>
   <text class="t" x="800" y="28" font-size="13" text-anchor="end" fill="#4F5B66">by code size across 12 public repositories</text>
   <rect x="0" y="40" width="800" height="2" fill="#55305F"/>
-  <rect x="0.0" y="68" width="356.8" height="14" fill="#55305F"/>
-  <rect x="359.8" y="68" width="218.5" height="14" fill="#1F3A4D"/>
-  <rect x="581.4" y="68" width="60.7" height="14" fill="#3D5E74"/>
-  <rect x="645.1" y="68" width="41.0" height="14" fill="#5F8299"/>
-  <rect x="689.0" y="68" width="24.1" height="14" fill="#87A5B8"/>
-  <rect x="716.2" y="68" width="21.2" height="14" fill="#AFC4D2"/>
+  <rect x="0.0" y="68" width="358.1" height="14" fill="#55305F"/>
+  <rect x="361.1" y="68" width="217.7" height="14" fill="#1F3A4D"/>
+  <rect x="581.8" y="68" width="60.5" height="14" fill="#3D5E74"/>
+  <rect x="645.3" y="68" width="40.8" height="14" fill="#5F8299"/>
+  <rect x="689.1" y="68" width="24.0" height="14" fill="#87A5B8"/>
+  <rect x="716.2" y="68" width="21.1" height="14" fill="#AFC4D2"/>
   <rect x="740.3" y="68" width="59.7" height="14" fill="#B5AC9C"/>
   <g>
     <rect x="0" y="111" width="10" height="10" fill="#55305F"/>
@@ -31,7 +31,7 @@
   <g>
     <rect x="0" y="171" width="10" height="10" fill="#3D5E74"/>
     <text class="t" x="20" y="180.5" font-size="14" fill="#13181D">HCL</text>
-    <text class="m" x="376" y="180.5" font-size="13" text-anchor="end" fill="#4F5B66">7.8%</text>
+    <text class="m" x="376" y="180.5" font-size="13" text-anchor="end" fill="#4F5B66">7.7%</text>
     <rect x="0" y="192" width="376" height="1" fill="#D6CFC2"/>
   </g>
   <g>
