@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="306" viewBox="0 0 800 306" role="img" aria-labelledby="title desc">
   <title id="title">At a glance</title>
-  <desc id="desc">10,648 contributions since 2015: 2,245 commits, 943 pull requests, 557 code reviews, 162 issues, 21 merged upstream, 18 public repositories, 5 stars earned, 11 followers. Last 12 months: 2,059 commits, 783 pull requests, 153 issues, 493 code reviews.</desc>
+  <desc id="desc">10,648 contributions since 2015: 2,245 commits, 943 pull requests, 557 code reviews, 162 issues, 21 merged upstream, 18 public repositories, 5 stars earned, 10 followers. Last 12 months: 2,059 commits, 783 pull requests, 153 issues, 493 code reviews.</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -51,6 +51,6 @@
   <text class="t" x="682" y="233" font-size="12.5" fill="#4F5B66">Public repositories</text>
   <text class="d" x="540" y="274" font-size="26" font-weight="500" fill="#13181D">5</text>
   <text class="t" x="540" y="291" font-size="12.5" fill="#4F5B66">Stars earned</text>
-  <text class="d" x="682" y="274" font-size="26" font-weight="500" fill="#13181D">11</text>
+  <text class="d" x="682" y="274" font-size="26" font-weight="500" fill="#13181D">10</text>
   <text class="t" x="682" y="291" font-size="12.5" fill="#4F5B66">Followers</text>
 </svg>
