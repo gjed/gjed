@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="224" viewBox="0 0 800 224" role="img" aria-labelledby="title desc">
   <title id="title">Most used languages</title>
-  <desc id="desc">Go 54.6%, Python 24.0%, HCL 6.2%, CSS 4.2%, JavaScript 2.5%, HTML 2.4%, Other 6.1%</desc>
+  <desc id="desc">Go 54.7%, Python 24.2%, HCL 6.1%, CSS 4.1%, JavaScript 2.5%, HTML 2.4%, Other 6.1%</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -9,13 +9,13 @@
   <text class="d" x="1" y="28" font-size="24" font-weight="500" fill="#13181D">Most used languages</text>
   <text class="t" x="800" y="28" font-size="13" text-anchor="end" fill="#4F5B66">by code size across 14 public repositories</text>
   <rect x="0" y="40" width="800" height="2" fill="#55305F"/>
-  <rect x="0.0" y="68" width="427.3" height="14" fill="#55305F"/>
-  <rect x="430.3" y="68" width="187.5" height="14" fill="#1F3A4D"/>
-  <rect x="620.8" y="68" width="48.1" height="14" fill="#3D5E74"/>
-  <rect x="671.9" y="68" width="32.5" height="14" fill="#5F8299"/>
-  <rect x="707.3" y="68" width="19.6" height="14" fill="#87A5B8"/>
-  <rect x="729.9" y="68" width="19.1" height="14" fill="#AFC4D2"/>
-  <rect x="752.1" y="68" width="47.9" height="14" fill="#B5AC9C"/>
+  <rect x="0.0" y="68" width="427.7" height="14" fill="#55305F"/>
+  <rect x="430.7" y="68" width="189.0" height="14" fill="#1F3A4D"/>
+  <rect x="622.7" y="68" width="47.4" height="14" fill="#3D5E74"/>
+  <rect x="673.1" y="68" width="32.0" height="14" fill="#5F8299"/>
+  <rect x="708.1" y="68" width="19.3" height="14" fill="#87A5B8"/>
+  <rect x="730.4" y="68" width="19.1" height="14" fill="#AFC4D2"/>
+  <rect x="752.4" y="68" width="47.6" height="14" fill="#B5AC9C"/>
   <g>
     <rect x="0" y="111" width="10" height="10" fill="#55305F"/>
     <text class="t" x="20" y="120.5" font-size="14" fill="#13181D" font-weight="600">Go</text>
@@ -31,13 +31,13 @@
   <g>
     <rect x="0" y="171" width="10" height="10" fill="#3D5E74"/>
     <text class="t" x="20" y="180.5" font-size="14" fill="#13181D">HCL</text>
-    <text class="m" x="376" y="180.5" font-size="13" text-anchor="end" fill="#4F5B66">6.2%</text>
+    <text class="m" x="376" y="180.5" font-size="13" text-anchor="end" fill="#4F5B66">6.1%</text>
     <rect x="0" y="192" width="376" height="1" fill="#D6CFC2"/>
   </g>
   <g>
     <rect x="0" y="201" width="10" height="10" fill="#5F8299"/>
     <text class="t" x="20" y="210.5" font-size="14" fill="#13181D">CSS</text>
-    <text class="m" x="376" y="210.5" font-size="13" text-anchor="end" fill="#4F5B66">4.2%</text>
+    <text class="m" x="376" y="210.5" font-size="13" text-anchor="end" fill="#4F5B66">4.1%</text>
     <rect x="0" y="222" width="376" height="1" fill="#D6CFC2"/>
   </g>
   <g>
