@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="306" viewBox="0 0 800 306" role="img" aria-labelledby="title desc">
   <title id="title">At a glance</title>
-  <desc id="desc">11,016 contributions since 2015: 2,485 commits, 976 pull requests, 591 code reviews, 185 issues, 21 merged upstream, 18 public repositories, 5 stars earned, 10 followers. Last 12 months: 2,248 commits, 765 pull requests, 176 issues, 525 code reviews.</desc>
+  <desc id="desc">11,202 contributions since 2015: 2,622 commits, 996 pull requests, 608 code reviews, 190 issues, 21 merged upstream, 18 public repositories, 5 stars earned, 10 followers. Last 12 months: 2,385 commits, 785 pull requests, 181 issues, 542 code reviews.</desc>
   <style>
     .t { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
     .d { font-family: Newsreader, 'Source Serif 4', Georgia, 'Times New Roman', serif; }
@@ -9,9 +9,9 @@
   <text class="d" x="1" y="28" font-size="24" font-weight="500" fill="#13181D">At a glance</text>
   <text class="t" x="800" y="28" font-size="13" text-anchor="end" fill="#4F5B66">@gjed on GitHub</text>
   <rect x="0" y="40" width="800" height="2" fill="#55305F"/>
-  <text class="d" x="0" y="128" font-size="60" font-weight="500" fill="#13181D">11,016</text>
+  <text class="d" x="0" y="128" font-size="60" font-weight="500" fill="#13181D">11,202</text>
   <text class="t" x="0" y="156" font-size="14" fill="#13181D">contributions since 2015</text>
-  <text class="t" x="0" y="178" font-size="13" fill="#4F5B66">9,395 so far in 2026</text>
+  <text class="t" x="0" y="178" font-size="13" fill="#4F5B66">9,581 so far in 2026</text>
   <text class="t" x="0" y="198" font-size="13" fill="#4F5B66">11 years on GitHub</text>
   <text class="t" x="0" y="284" font-size="12" fill="#4F5B66">Activity overview, last 12 months</text>
   <text class="t" x="0" y="300" font-size="12" fill="#4F5B66">as GitHub draws it on the profile</text>
@@ -21,28 +21,28 @@
     <line x1="308" y1="188" x2="456" y2="188"/>
     <line x1="382" y1="114" x2="382" y2="262"/>
   </g>
-  <polygon points="382.0,177.5 385.5,188.0 382.0,203.2 337.2,188.0" fill="#55305F" fill-opacity="0.16" stroke="#55305F" stroke-width="2" stroke-linejoin="round"/>
-  <circle cx="382.0" cy="177.5" r="3.5" fill="#55305F"/>
-  <circle cx="385.5" cy="188.0" r="3.5" fill="#55305F"/>
-  <circle cx="382.0" cy="203.2" r="3.5" fill="#55305F"/>
-  <circle cx="337.2" cy="188.0" r="3.5" fill="#55305F"/>
+  <polygon points="382.0,177.7 385.4,188.0 382.0,202.9 336.7,188.0" fill="#55305F" fill-opacity="0.16" stroke="#55305F" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="382.0" cy="177.7" r="3.5" fill="#55305F"/>
+  <circle cx="385.4" cy="188.0" r="3.5" fill="#55305F"/>
+  <circle cx="382.0" cy="202.9" r="3.5" fill="#55305F"/>
+  <circle cx="336.7" cy="188.0" r="3.5" fill="#55305F"/>
   <text class="t" x="382" y="90" font-size="13" font-weight="600" text-anchor="middle" fill="#13181D">14%</text>
   <text class="t" x="382" y="105" font-size="12" text-anchor="middle" fill="#4F5B66">Code review</text>
   <text class="t" x="464" y="185" font-size="13" font-weight="600" text-anchor="start" fill="#13181D">5%</text>
   <text class="t" x="464" y="200" font-size="12" text-anchor="start" fill="#4F5B66">Issues</text>
-  <text class="t" x="382" y="280" font-size="13" font-weight="600" text-anchor="middle" fill="#13181D">21%</text>
+  <text class="t" x="382" y="280" font-size="13" font-weight="600" text-anchor="middle" fill="#13181D">20%</text>
   <text class="t" x="382" y="295" font-size="12" text-anchor="middle" fill="#4F5B66">Pull requests</text>
   <text class="t" x="300" y="185" font-size="13" font-weight="600" text-anchor="end" fill="#13181D">61%</text>
   <text class="t" x="300" y="200" font-size="12" text-anchor="end" fill="#4F5B66">Commits</text>
-  <text class="d" x="540" y="100" font-size="26" font-weight="500" fill="#13181D">2,485</text>
+  <text class="d" x="540" y="100" font-size="26" font-weight="500" fill="#13181D">2,622</text>
   <text class="t" x="540" y="117" font-size="12.5" fill="#4F5B66">Commits</text>
   <rect x="540" y="127.0" width="260" height="1" fill="#D6CFC2"/>
-  <text class="d" x="682" y="100" font-size="26" font-weight="500" fill="#13181D">976</text>
+  <text class="d" x="682" y="100" font-size="26" font-weight="500" fill="#13181D">996</text>
   <text class="t" x="682" y="117" font-size="12.5" fill="#4F5B66">Pull requests</text>
-  <text class="d" x="540" y="158" font-size="26" font-weight="500" fill="#13181D">591</text>
+  <text class="d" x="540" y="158" font-size="26" font-weight="500" fill="#13181D">608</text>
   <text class="t" x="540" y="175" font-size="12.5" fill="#4F5B66">Code reviews</text>
   <rect x="540" y="185.0" width="260" height="1" fill="#D6CFC2"/>
-  <text class="d" x="682" y="158" font-size="26" font-weight="500" fill="#13181D">185</text>
+  <text class="d" x="682" y="158" font-size="26" font-weight="500" fill="#13181D">190</text>
   <text class="t" x="682" y="175" font-size="12.5" fill="#4F5B66">Issues</text>
   <text class="d" x="540" y="216" font-size="26" font-weight="500" fill="#13181D">21</text>
   <text class="t" x="540" y="233" font-size="12.5" fill="#4F5B66">Merged upstream</text>
